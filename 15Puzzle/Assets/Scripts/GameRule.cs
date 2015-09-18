@@ -34,6 +34,11 @@ public class GameRule : MonoBehaviour {
 	// マウスカーソルの下にあるオブジェクト.
 	GameObject UnderMouseObj;
 
+	void Awake()
+	{
+		Screen.SetResolution(1024, 768, false);
+	}
+
 	// 初期化.
 	void Start () 
 	{
@@ -67,12 +72,7 @@ public class GameRule : MonoBehaviour {
 			y = (int)PanelObjects[SelectedPanel].GetComponent<RectTransform>().position.y;
 		}
 		*/
-		int selecterpanel = -1;
-		if (Input.GetMouseButtonDown (0)) 
-		{
-			// 選択したパネル番号取得.
-			selecterpanel = int.Parse(this.GetComponentInChildren<Text>().text);
-		}
+
 
 		int pn = y * 4 + x;
 		if (x > 0 && 15 == Panel [pn - 1]) Swap(pn - 1, pn);
